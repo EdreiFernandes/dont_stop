@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tapple_app/components/category_display.dart';
 import 'package:tapple_app/components/letter_selector/letter_selector.dart';
 import 'package:tapple_app/components/progress_bar.dart';
 
@@ -15,6 +16,7 @@ class Game extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ProgressBar(),
+          CategoryDisplay(),
           LetterSelector(),
         ],
       ),
