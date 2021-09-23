@@ -25,6 +25,8 @@ class _KeyboardTileState extends State<KeyboardTile> {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaSize = MediaQuery.of(context).size;
+
     return Material(
       color: _isActive ? Colors.blue : Colors.grey,
       textStyle: TextStyle(
@@ -40,7 +42,7 @@ class _KeyboardTileState extends State<KeyboardTile> {
         },
         child: Container(
           width: 180.0,
-          height: 120.0,
+          height: _mediaSize.height / 6,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.white,
