@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tapple_app/utils/screensizer.dart';
 
 class CategoryDisplay extends StatelessWidget {
   const CategoryDisplay({Key? key}) : super(key: key);
@@ -6,15 +7,13 @@ class CategoryDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 12.0,
-        left: 12.0,
-        bottom: 80.0,
-        top: 10.0,
+      padding: EdgeInsets.only(
+        right: ScreenSize().getWidth(context, dividedBy: 30.0),
+        left: ScreenSize().getWidth(context, dividedBy: 30.0),
+        top: ScreenSize().getHeight(context, dividedBy: 50.0),
       ),
       child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height / 5,
+        height: ScreenSize().getHeight(context, dividedBy: 5.0),
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(12),
@@ -24,7 +23,9 @@ class CategoryDisplay extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(
+            ScreenSize().getWidth(context, dividedBy: 30.0),
+          ),
           child: Center(
             child: Text(
               "Category", // TODO Alterar categoria por rodada

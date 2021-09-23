@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tapple_app/utils/screensizer.dart';
 
 class TimerButton extends StatelessWidget {
   const TimerButton({Key? key}) : super(key: key);
@@ -16,8 +17,8 @@ class TimerButton extends StatelessWidget {
           debugPrint("Timer start/reset");
         },
         child: Container(
-          height: 100.0,
-          width: 240.0,
+          height: ScreenSize().getHeight(context, dividedBy: 7.0),
+          width: ScreenSize().getWidth(context, dividedBy: 1.5),
         ),
       ),
     );
