@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tapple_app/utils/keyboard_memory.dart';
 
 class KeyboardTile extends StatefulWidget {
   final String letter;
@@ -10,7 +11,17 @@ class KeyboardTile extends StatefulWidget {
 }
 
 class _KeyboardTileState extends State<KeyboardTile> {
-  late bool _isActive = true;
+  late bool _isActive = false;
+
+  @override
+  void initState() {
+    KeyboardMemory().getLetterStatus(widget.letter).then((value) {
+      setState(() {
+        _isActive = value;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +35,7 @@ class _KeyboardTileState extends State<KeyboardTile> {
         onTap: () {
           setState(() {
             _isActive = !_isActive;
+            KeyboardMemory().setLetterStatus(widget.letter, _isActive);
           });
         },
         child: Container(
