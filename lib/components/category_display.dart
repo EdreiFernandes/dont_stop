@@ -10,7 +10,7 @@ class CategoryDisplay extends StatelessWidget {
         right: 12.0,
         left: 12.0,
         bottom: 80.0,
-        top: 10.0
+        top: 10.0,
       ),
       child: Container(
         width: MediaQuery.of(context).size.width,
