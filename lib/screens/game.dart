@@ -10,19 +10,30 @@ class Game extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Game"),
-      ),
-      body:Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ProgressBar(),
-          CategoryDisplay(),
-          TimerButton(),
-          LetterSelector()
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text("Game"),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Column(
+                children: [
+                  ProgressBar(),
+                  CategoryDisplay(),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TimerButton(),
+                  LetterSelector(),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 }
-
