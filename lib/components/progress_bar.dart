@@ -39,12 +39,13 @@ class _ProgressBarState extends State<ProgressBar> {
   Widget build(BuildContext context) {
     _loading = true;
     _updateProgress();
+    final _mediaSize = MediaQuery.of(context).size;
 
     return Column(
       children: [
         _loading
             ? LinearProgressIndicator(
-                minHeight: 16.0,
+                minHeight: _mediaSize.height / 40,
                 backgroundColor: Colors.transparent,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
                 value: _progressValue,
