@@ -5,16 +5,17 @@ class CategoryDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaSize = MediaQuery.of(context).size;
+
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 12.0,
-        left: 12.0,
-        bottom: 80.0,
-        top: 10.0,
+      padding: EdgeInsets.only(
+        right: _mediaSize.width / 30,
+        left: _mediaSize.width / 30,
+        top: _mediaSize.height / 50,
       ),
       child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height / 5,
+        width: _mediaSize.width,
+        height: _mediaSize.height / 5,
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(12),
@@ -24,7 +25,7 @@ class CategoryDisplay extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(_mediaSize.width / 30),
           child: Center(
             child: Text(
               "Category", // TODO Alterar categoria por rodada
