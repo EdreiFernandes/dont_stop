@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:tapple_app/utils/screensizer.dart';
 
 class ProgressBar extends StatefulWidget {
   const ProgressBar({Key? key}) : super(key: key);
@@ -39,13 +40,12 @@ class _ProgressBarState extends State<ProgressBar> {
   Widget build(BuildContext context) {
     _loading = true;
     _updateProgress();
-    final _mediaSize = MediaQuery.of(context).size;
 
     return Column(
       children: [
         _loading
             ? LinearProgressIndicator(
-                minHeight: _mediaSize.height / 40,
+                minHeight: ScreenSize().getHeight(context, dividedBy: 40.0),
                 backgroundColor: Colors.transparent,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
                 value: _progressValue,

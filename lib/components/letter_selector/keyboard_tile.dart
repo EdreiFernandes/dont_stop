@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tapple_app/utils/keyboard_memory.dart';
+import 'package:tapple_app/utils/screensizer.dart';
 
 class KeyboardTile extends StatefulWidget {
   final String letter;
@@ -25,8 +26,6 @@ class _KeyboardTileState extends State<KeyboardTile> {
 
   @override
   Widget build(BuildContext context) {
-    final _mediaSize = MediaQuery.of(context).size;
-
     return Material(
       color: _isActive ? Colors.blue : Colors.grey,
       textStyle: TextStyle(
@@ -42,7 +41,7 @@ class _KeyboardTileState extends State<KeyboardTile> {
         },
         child: Container(
           width: 180.0,
-          height: _mediaSize.height / 6,
+          height: ScreenSize().getHeight(context, dividedBy: 6.0),
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.white,

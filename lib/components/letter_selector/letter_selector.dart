@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tapple_app/utils/screensizer.dart';
 
 import 'keyboard.dart';
 
@@ -7,12 +8,9 @@ class LetterSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _mediaSize = MediaQuery.of(context).size;
-
     return Container(
-      height: _mediaSize.height / 3,
+      height:  ScreenSize().getHeight(context, dividedBy: 3.0),
       child: ListView(
-        // This next line does the trick.
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           Keyboard(tiles: ['A','B','C','D']),
