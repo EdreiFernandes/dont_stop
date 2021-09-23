@@ -5,6 +5,8 @@ class TimerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaSize = MediaQuery.of(context).size;
+
     return Material(
       color: Colors.red,
       borderRadius: BorderRadius.only(
@@ -16,8 +18,8 @@ class TimerButton extends StatelessWidget {
           debugPrint("Timer start/reset");
         },
         child: Container(
-          height: 100.0,
-          width: 240.0,
+          height: _mediaSize.height / 7,
+          width: _mediaSize.width / 1.5,
         ),
       ),
     );
