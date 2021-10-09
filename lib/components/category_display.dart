@@ -1,8 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:tapple_app/utils/screensizer.dart';
 
 class CategoryDisplay extends StatelessWidget {
-  const CategoryDisplay({Key? key}) : super(key: key);
+  final List<String> _categoriesList = [
+    "Herois",
+    "Comidas",
+    "C.E.P",
+    "Animais",
+    "Desenhos animados",
+    "Filmes",
+    "Series"
+  ];
+
+  CategoryDisplay({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +40,7 @@ class CategoryDisplay extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "Category", // TODO Alterar categoria por rodada
+              getRandomCategory(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24.0,
@@ -39,5 +51,11 @@ class CategoryDisplay extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getRandomCategory() {
+    Random random = new Random();
+    int index = random.nextInt(_categoriesList.length);
+    return _categoriesList[index];
   }
 }
