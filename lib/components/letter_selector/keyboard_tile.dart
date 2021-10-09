@@ -40,7 +40,7 @@ class _KeyboardTileState extends State<KeyboardTile> {
           });
         },
         child: Container(
-          width: 180.0,
+          width: ScreenSize().getWidth(context, dividedBy: 2.0),
           height: ScreenSize().getHeight(context, dividedBy: 6.0),
           decoration: BoxDecoration(
             border: Border.all(
