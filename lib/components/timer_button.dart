@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tapple_app/utils/screensizer.dart';
+import 'package:tapple_app/utils/timer_control.dart';
 
 class TimerButton extends StatelessWidget {
-  const TimerButton({Key? key}) : super(key: key);
+  final TimerControl _timerControl = TimerControl();
+
+  TimerButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class TimerButton extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          debugPrint("Timer start/reset");
+          _timerControl.startOrResetTimer();
         },
         child: Container(
           height: ScreenSize().getHeight(context, dividedBy: 7.0),
