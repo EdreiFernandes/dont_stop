@@ -9,6 +9,7 @@ Future<Database> getDatabase() async {
     path,
     onCreate: (db, version) {
       db.execute(CategoryDao.tableSql);
+      db.execute(CategoryDao.insertDefaultValues());
     },
     version: 1,
     // onDowngrade: onDatabaseDowngradeDelete,

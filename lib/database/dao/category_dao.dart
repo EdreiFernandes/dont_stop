@@ -15,6 +15,22 @@ class CategoryDao {
   static const String _difficultyLevel = 'difficulty_level';
   static const String _active = 'active';
 
+  static List<Category> _defaultCategories = [
+    new Category(0, "Super-heróis", 1, 1),
+    new Category(0, "Sabores de sorvete", 1, 1),
+    new Category(0, "Nomes femininos", 1, 1),
+    new Category(0, "Nomes masculino", 1, 1),
+    new Category(0, "Tem na geladeira", 1, 1),
+    new Category(0, "Marcas", 1, 1),
+    new Category(0, "Sabores de pizza", 1, 1),
+    new Category(0, "Cidade, Estado, País", 1, 1),
+    new Category(0, "Idiomas", 1, 1),
+    new Category(0, "Times de futebol", 1, 1),
+    new Category(0, "Animais", 1, 1),
+    new Category(0, "Músicas", 1, 1),
+    new Category(0, "Esportes", 1, 1),
+  ];
+
   Future<int> save(Category category) async {
     final Database db = await getDatabase();
     Map<String, dynamic> categoryMap = _toMap(category);
@@ -48,5 +64,21 @@ class CategoryDao {
       categories.add(category);
     }
     return categories;
+  }
+
+  static String insertDefaultValues() {
+    StringBuffer query = new StringBuffer();
+    query.write('INSERT INTO $_tableName ($_name, $_difficultyLevel, $_active) VALUES');
+    for (Category category in _defaultCategories){
+      query.write("('${category.name}',");
+      query.write("${category.difficultyLevel.toString()},");
+      query.write("${category.active.toString()}),");
+    }
+
+    return _removeLastCharacter(query.toString());
+  }
+
+  static String _removeLastCharacter(String text){
+    return text.substring(0, text.length - 1);
   }
 }
