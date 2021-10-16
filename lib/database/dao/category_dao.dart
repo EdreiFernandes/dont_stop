@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:tapple_app/database/app_database.dart';
 import 'package:tapple_app/models/category.dart';
+import 'package:tapple_app/utils/extensions/string_extensions.dart';
 
 class CategoryDao {
   static const String tableSql = 'CREATE TABLE $_tableName('
@@ -87,10 +88,6 @@ class CategoryDao {
       query.write("${category.active.toString()}),");
     }
 
-    return _removeLastCharacter(query.toString());
-  }
-
-  static String _removeLastCharacter(String text) {
-    return text.substring(0, text.length - 1);
+    return query.toString().removeLastCharacter();
   }
 }
