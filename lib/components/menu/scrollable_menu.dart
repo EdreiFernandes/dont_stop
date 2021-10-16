@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tapple_app/components/menu/menu_button.dart';
+import 'package:tapple_app/screens/categories_editor.dart';
 import 'package:tapple_app/utils/screensizer.dart';
 
 class ScrollableMenu extends StatelessWidget {
@@ -19,12 +20,15 @@ class ScrollableMenu extends StatelessWidget {
           children: [
             MenuButton(
               label: "Cards",
+              navigatorDestiny: CategoriesEditor(),
             ),
             MenuButton(
               label: "HTP",
+              navigatorDestiny: CategoriesEditor(),
             ),
             MenuButton(
               label: "Config",
+              navigatorDestiny: CategoriesEditor(),
             ),
           ],
         ),
