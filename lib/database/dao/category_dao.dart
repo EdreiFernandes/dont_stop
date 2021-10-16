@@ -37,11 +37,22 @@ class CategoryDao {
     return db.insert(_tableName, categoryMap);
   }
 
-  Future<List<Category>> findAll() async {
+  Future<List<Category>> getAll() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
     List<Category> categories = _toList(result);
     return categories;
+  }
+
+  Future<Category> getRandom() async {
+    final Database db = await getDatabase();
+    final List<Map<String, dynamic>> result = await db.query(
+      _tableName,
+      orderBy: "RANDOM()",
+      limit: 1,
+    );
+    Category category = _toList(result).first;
+    return category;
   }
 
   Map<String, dynamic> _toMap(Category category) {
@@ -68,8 +79,9 @@ class CategoryDao {
 
   static String insertDefaultValues() {
     StringBuffer query = new StringBuffer();
-    query.write('INSERT INTO $_tableName ($_name, $_difficultyLevel, $_active) VALUES');
-    for (Category category in _defaultCategories){
+    query.write(
+        'INSERT INTO $_tableName ($_name, $_difficultyLevel, $_active) VALUES');
+    for (Category category in _defaultCategories) {
       query.write("('${category.name}',");
       query.write("${category.difficultyLevel.toString()},");
       query.write("${category.active.toString()}),");
@@ -78,7 +90,7 @@ class CategoryDao {
     return _removeLastCharacter(query.toString());
   }
 
-  static String _removeLastCharacter(String text){
+  static String _removeLastCharacter(String text) {
     return text.substring(0, text.length - 1);
   }
 }

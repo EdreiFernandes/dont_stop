@@ -60,12 +60,10 @@ class _CategoryDisplayState extends State<CategoryDisplay> {
   }
 
   void getRandomCategory() {
-    _categoryDao.findAll().then((categories) {
-      setState(() {
-        Random random = new Random();
-        int index = random.nextInt(categories.length);
-        _categoryRound = categories[index].name;
-      });
+    _categoryDao.getRandom().then((category) {
+      if(mounted){
+        setState(() => _categoryRound = category.name);
+      }
     });
   }
 }

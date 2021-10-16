@@ -25,7 +25,7 @@ class _CategoriesEditorState extends State<CategoriesEditor> {
         ),
         body: FutureBuilder<List<Category>>(
           initialData: [],
-          future: _categoryDao.findAll(),
+          future: _categoryDao.getAll(),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
