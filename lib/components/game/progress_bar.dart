@@ -16,7 +16,7 @@ class _ProgressBarState extends State<ProgressBar> {
   void initState() {
     super.initState();
     timerControl.callback = (time) {
-      setState(() {});
+      if(mounted) setState(() {});
     };
     timerControl.startOrResetTimer();
   }

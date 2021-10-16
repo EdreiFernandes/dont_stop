@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tapple_app/utils/screensizer.dart';
 
 class MenuButton extends StatelessWidget {
+  final Widget navigatorDestiny;
   final String label;
-  const MenuButton({Key? key, required this.label}) : super(key: key);
+
+  const MenuButton({Key? key, required this.label, required this.navigatorDestiny}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,10 @@ class MenuButton extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.lightBlueAccent,
         onTap: () {
-          debugPrint(label);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => navigatorDestiny),
+          );
         },
         child: SizedBox(
           width: ScreenSize().getWidth(context, dividedBy: 2.2),

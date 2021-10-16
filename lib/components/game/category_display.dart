@@ -1,20 +1,26 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:tapple_app/database/dao/category_dao.dart';
 import 'package:tapple_app/utils/screensizer.dart';
 
-class CategoryDisplay extends StatelessWidget {
-  final List<String> _categoriesList = [
-    "Herois",
-    "Comidas",
-    "C.E.P",
-    "Animais",
-    "Desenhos animados",
-    "Filmes",
-    "Series"
-  ];
+class CategoryDisplay extends StatefulWidget {
 
   CategoryDisplay({Key? key}) : super(key: key);
+
+  @override
+  State<CategoryDisplay> createState() => _CategoryDisplayState();
+}
+
+class _CategoryDisplayState extends State<CategoryDisplay> {
+  late String _categoryRound = "";
+  final CategoryDao _categoryDao = new CategoryDao();
+
+  @override
+  void initState() {
+    super.initState();
+    getRandomCategory();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,7 @@ class CategoryDisplay extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              getRandomCategory(),
+              _categoryRound,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24.0,
@@ -53,9 +59,11 @@ class CategoryDisplay extends StatelessWidget {
     );
   }
 
-  String getRandomCategory() {
-    Random random = new Random();
-    int index = random.nextInt(_categoriesList.length);
-    return _categoriesList[index];
+  void getRandomCategory() {
+    _categoryDao.getRandom().then((category) {
+      if(mounted){
+        setState(() => _categoryRound = category.name);
+      }
+    });
   }
 }
