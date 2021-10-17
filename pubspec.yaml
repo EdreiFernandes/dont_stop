@@ -37,7 +37,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: "^0.7.0"
+  flutter_native_splash: ^1.2.4
+  flutter_launcher_icons: "^0.9.2"
+
+flutter_native_splash:
+  color: "#54cacb"
+  image: assets/splash.png
+  android: true
+  #android_gravity: fill
 
 flutter_icons:
   ios: false
