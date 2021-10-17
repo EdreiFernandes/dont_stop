@@ -1,2 +1,2 @@
-# Tapple App
-  App em Flutter do jogo tapple
+# Don't Stop
+  App em Flutter do jogo Don't Stop

@@ -1,4 +1,4 @@
-package br.com.mountainfortress.tapple_app
+package br.com.mountainfortress.dont_stop
 
 import io.flutter.embedding.android.FlutterActivity
 

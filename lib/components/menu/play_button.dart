@@ -1,6 +1,6 @@
+import 'package:dont_stop/screens/game.dart';
+import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/screens/game.dart';
-import 'package:tapple_app/utils/screensizer.dart';
 
 class PlayButton extends StatelessWidget {
   const PlayButton({Key? key}) : super(key: key);

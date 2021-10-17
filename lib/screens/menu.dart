@@ -1,6 +1,6 @@
+import 'package:dont_stop/components/menu/play_button.dart';
+import 'package:dont_stop/components/menu/scrollable_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/components/menu/play_button.dart';
-import 'package:tapple_app/components/menu/scrollable_menu.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);

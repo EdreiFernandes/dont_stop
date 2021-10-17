@@ -1,8 +1,6 @@
-import 'dart:math';
-
+import 'package:dont_stop/database/dao/category_dao.dart';
+import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/database/dao/category_dao.dart';
-import 'package:tapple_app/utils/screensizer.dart';
 
 class CategoryDisplay extends StatefulWidget {
 

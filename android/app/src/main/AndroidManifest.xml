@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.mountainfortress.tapple_app">
+    package="br.com.mountainfortress.dont_stop">
    <application
-        android:label="tapple_app"
+        android:label="dont_stop"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

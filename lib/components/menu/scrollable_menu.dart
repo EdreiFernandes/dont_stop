@@ -1,7 +1,8 @@
+import 'package:dont_stop/screens/categories_editor.dart';
+import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/components/menu/menu_button.dart';
-import 'package:tapple_app/screens/categories_editor.dart';
-import 'package:tapple_app/utils/screensizer.dart';
+
+import 'menu_button.dart';
 
 class ScrollableMenu extends StatelessWidget {
   const ScrollableMenu({Key? key}) : super(key: key);

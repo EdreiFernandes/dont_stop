@@ -1,6 +1,6 @@
+import 'package:dont_stop/utils/screensizer.dart';
+import 'package:dont_stop/utils/timer_control.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/utils/screensizer.dart';
-import 'package:tapple_app/utils/timer_control.dart';
 
 class ProgressBar extends StatefulWidget {
   const ProgressBar({Key? key}) : super(key: key);

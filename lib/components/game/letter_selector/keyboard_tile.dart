@@ -1,6 +1,6 @@
+import 'package:dont_stop/utils/keyboard_memory.dart';
+import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/utils/keyboard_memory.dart';
-import 'package:tapple_app/utils/screensizer.dart';
 
 class KeyboardTile extends StatefulWidget {
   final String letter;
