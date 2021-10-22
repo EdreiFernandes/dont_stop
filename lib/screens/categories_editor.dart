@@ -1,6 +1,6 @@
+import 'package:dont_stop/database/dao/category_dao.dart';
+import 'package:dont_stop/models/category.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/database/dao/category_dao.dart';
-import 'package:tapple_app/models/category.dart';
 
 class CategoriesEditor extends StatefulWidget {
   const CategoriesEditor({Key? key}) : super(key: key);

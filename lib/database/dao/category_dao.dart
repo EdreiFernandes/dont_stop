@@ -1,7 +1,7 @@
+import 'package:dont_stop/database/app_database.dart';
+import 'package:dont_stop/models/category.dart';
+import 'package:dont_stop/utils/extensions/string_extensions.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:tapple_app/database/app_database.dart';
-import 'package:tapple_app/models/category.dart';
-import 'package:tapple_app/utils/extensions/string_extensions.dart';
 
 class CategoryDao {
   static const String tableSql = 'CREATE TABLE $_tableName('

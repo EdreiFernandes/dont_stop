@@ -1,5 +1,5 @@
+import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tapple_app/utils/screensizer.dart';
 
 class MenuButton extends StatelessWidget {
   final Widget navigatorDestiny;
