@@ -25,8 +25,28 @@ class PlayButton extends StatelessWidget {
           child: SizedBox(
             width: ScreenSize().getWidth(context),
             height: ScreenSize().getHeight(context, dividedBy: 2),
-            child: Center(
-              child: Text("Play"),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: ScreenSize().getWidth(context, dividedBy: 8.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    Icons.play_circle_outline,
+                    color: Colors.white,
+                    size: ScreenSize().getWidth(context, dividedBy: 2),
+                  ),
+                  Text(
+                    "Iniciar partida",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: ScreenSize().getWidth(context, dividedBy: 8.0),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
