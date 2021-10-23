@@ -1,4 +1,5 @@
 name: dont_stop
+uses-material-design: true
 description: Don't Stop game in a flutter app
 
 # The following line prevents the package from being accidentally published to
