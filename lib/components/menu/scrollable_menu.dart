@@ -20,15 +20,18 @@ class ScrollableMenu extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: [
             MenuButton(
-              label: "Cards",
+              label: "Cartas de categorias",
+              icone: Icons.layers,
               navigatorDestiny: CategoriesEditor(),
             ),
             MenuButton(
-              label: "HTP",
+              label: "Como jogar?",
+              icone: Icons.auto_stories,
               navigatorDestiny: CategoriesEditor(),
             ),
             MenuButton(
-              label: "Config",
+              label: "Configurações",
+              icone: Icons.settings,
               navigatorDestiny: CategoriesEditor(),
             ),
           ],
