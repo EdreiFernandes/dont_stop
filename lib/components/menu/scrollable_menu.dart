@@ -1,4 +1,5 @@
 import 'package:dont_stop/screens/categories_editor.dart';
+import 'package:dont_stop/screens/game_rules.dart';
 import 'package:dont_stop/utils/screensizer.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +26,9 @@ class ScrollableMenu extends StatelessWidget {
               navigatorDestiny: CategoriesEditor(),
             ),
             MenuButton(
-              label: "Como jogar?",
+              label: "Como jogar",
               icone: Icons.auto_stories,
-              navigatorDestiny: CategoriesEditor(),
+              navigatorDestiny: GameRules(),
             ),
             MenuButton(
               label: "Configurações",
