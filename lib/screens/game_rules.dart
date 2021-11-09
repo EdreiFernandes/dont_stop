@@ -14,17 +14,40 @@ class GameRules extends StatefulWidget {
 
 class _GameRulesState extends State<GameRules> {
   String pdfName = "gamerules.pdf";
-  late String pdfPath;
+  int _currentPage = 1;
 
   @override
-  void initState() {
-    super.initState();
-
-    getFileFromAsset(pdfName).then((file) => {
-          setState(() {
-            pdfPath = file.path;
-            print(pdfPath);
-          })
+  Widget build(BuildContext context) {
+    return FutureBuilder<File>(
+        future: getFileFromAsset(pdfName),
+        builder: (context, snapshot) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Manual de regras"),
+            ),
+            body: Center(
+              child: snapshot.hasData
+                  ? PDFView(
+                      filePath: snapshot.data!.path,
+                      autoSpacing: true,
+                      enableSwipe: true,
+                      pageSnap: true,
+                      swipeHorizontal: true,
+                      nightMode: false,
+                      onPageChanged: (page, total) {
+                        setState(() {
+                          _currentPage = (page ?? 0) + 1;
+                        });
+                      },
+                    )
+                  : CircularProgressIndicator(),
+            ),
+            floatingActionButton: FloatingActionButton(
+              child: Text(_currentPage.toString()),
+              tooltip: "Current page", //"Go to a specific page",
+              onPressed: () {},
+            ),
+          );
         });
   }
 
@@ -38,121 +61,7 @@ class _GameRulesState extends State<GameRules> {
       File assetFile = await file.writeAsBytes(bytes);
       return assetFile;
     } catch (e) {
-      throw Exception("Error opening asset files");
+      throw Exception("Occur an error opening asset file!");
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("-------"),
-        ),
-        body: Center(
-          child: Builder(
-              builder: (context) => Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        child: Text("Open PDF"),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PdfViewPage(
-                                        path: pdfPath,
-                                      )));
-                        },
-                      )
-                    ],
-                  )),
-        ),
-      ),
-    );
-  }
-}
-
-class PdfViewPage extends StatefulWidget {
-  final String path;
-
-  const PdfViewPage({Key? key, required this.path}) : super(key: key);
-
-  @override
-  _PdfViewPageState createState() => _PdfViewPageState();
-}
-
-class _PdfViewPageState extends State<PdfViewPage> {
-  int _totalPages = 0;
-  int _currentPage = 0;
-  bool pdfReady = false;
-  late PDFViewController _pdfViewController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Manual de regras"),
-      ),
-      body: Stack(
-        children: [
-          PDFView(
-            filePath: widget.path,
-            autoSpacing: true,
-            enableSwipe: true,
-            pageSnap: true,
-            swipeHorizontal: true,
-            nightMode: false,
-            onError: (e) {
-              print(e);
-            },
-            onRender: (_pages) {
-              setState(() {
-                _totalPages = _pages ?? 0;
-                pdfReady = true;
-              });
-            },
-            onViewCreated: (PDFViewController viewController) {
-              _pdfViewController = viewController;
-            },
-            onPageChanged: (int? page, int? total) {
-              setState(() {});
-            },
-            onPageError: (page, e) {},
-          ),
-          !pdfReady
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Offstage(),
-        ],
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          _currentPage > 0
-              ? FloatingActionButton.extended(
-                  backgroundColor: Colors.red,
-                  label: Text("Go to ${_currentPage - 1}"),
-                  onPressed: () {
-                    _currentPage -= 1;
-                    _pdfViewController.setPage(_currentPage);
-                  },
-                )
-              : Offstage(),
-          _currentPage + 1 < _totalPages
-              ? FloatingActionButton.extended(
-                  backgroundColor: Colors.green,
-                  label: Text("Go to ${_currentPage + 1}"),
-                  onPressed: () {
-                    _currentPage += 1;
-                    _pdfViewController.setPage(_currentPage);
-                  },
-                )
-              : Offstage(),
-        ],
-      ),
-    );
   }
 }
