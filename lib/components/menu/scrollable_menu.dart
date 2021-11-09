@@ -30,11 +30,11 @@ class ScrollableMenu extends StatelessWidget {
               icone: Icons.auto_stories,
               navigatorDestiny: GameRules(),
             ),
-            MenuButton(
-              label: "Configurações",
-              icone: Icons.settings,
-              navigatorDestiny: CategoriesEditor(),
-            ),
+            // MenuButton(
+            //   label: "Configurações",
+            //   icone: Icons.settings,
+            //   navigatorDestiny: CategoriesEditor(),
+            // ),
           ],
         ),
       ),
