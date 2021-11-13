@@ -12,12 +12,16 @@ class ProgressBar extends StatefulWidget {
 
 class _ProgressBarState extends State<ProgressBar> {
   final TimerService timerService = Modular.get();
+  late double timeValue = 0.0;
 
   @override
   void initState() {
     super.initState();
-    timerService.setCallback(() {
-      if (mounted) setState(() {});
+    timerService.onUpdate((time) {
+      if (mounted)
+        setState(() {
+          timeValue = time;
+        });
     });
     timerService.startOrResetTimer();
   }
@@ -30,7 +34,7 @@ class _ProgressBarState extends State<ProgressBar> {
           minHeight: ScreenSize().getHeight(context, dividedBy: 40.0),
           backgroundColor: Colors.transparent,
           valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
-          value: timerService.getTimeValue(),
+          value: timeValue,
         )
       ],
     );
