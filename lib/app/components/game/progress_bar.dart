@@ -1,6 +1,7 @@
+import 'package:dont_stop/app/services/timer_service.dart';
 import 'package:dont_stop/app/utils/screensizer.dart';
-import 'package:dont_stop/app/utils/timer_control.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class ProgressBar extends StatefulWidget {
   const ProgressBar({Key? key}) : super(key: key);
@@ -10,15 +11,15 @@ class ProgressBar extends StatefulWidget {
 }
 
 class _ProgressBarState extends State<ProgressBar> {
-  late TimerControl _timerControl = TimerControl();
+  final TimerService timerService = Modular.get();
 
   @override
   void initState() {
     super.initState();
-    _timerControl.callback = (time) {
+    timerService.setCallback(() {
       if (mounted) setState(() {});
-    };
-    _timerControl.startOrResetTimer();
+    });
+    timerService.startOrResetTimer();
   }
 
   @override
@@ -29,7 +30,7 @@ class _ProgressBarState extends State<ProgressBar> {
           minHeight: ScreenSize().getHeight(context, dividedBy: 40.0),
           backgroundColor: Colors.transparent,
           valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
-          value: _timerControl.timeValue,
+          value: timerService.getTimeValue(),
         )
       ],
     );

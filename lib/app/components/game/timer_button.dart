@@ -1,9 +1,10 @@
+import 'package:dont_stop/app/services/timer_service.dart';
 import 'package:dont_stop/app/utils/screensizer.dart';
-import 'package:dont_stop/app/utils/timer_control.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class TimerButton extends StatelessWidget {
-  final TimerControl _timerControl = TimerControl();
+  final TimerService timerService = Modular.get();
 
   TimerButton({Key? key}) : super(key: key);
 
@@ -17,7 +18,7 @@ class TimerButton extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          _timerControl.startOrResetTimer();
+          timerService.startOrResetTimer();
         },
         child: Container(
           height: ScreenSize().getHeight(context, dividedBy: 7.0),
