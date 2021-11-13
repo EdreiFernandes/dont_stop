@@ -1,5 +1,5 @@
-import 'package:dont_stop/screens/game.dart';
-import 'package:dont_stop/utils/screensizer.dart';
+import 'package:dont_stop/app/utils/screensizer.dart';
+import 'package:dont_stop/app/screens/game.dart';
 import 'package:flutter/material.dart';
 
 class PlayButton extends StatelessWidget {

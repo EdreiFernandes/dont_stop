@@ -1,5 +1,5 @@
-import 'package:dont_stop/utils/screensizer.dart';
-import 'package:dont_stop/utils/timer_control.dart';
+import 'package:dont_stop/app/utils/screensizer.dart';
+import 'package:dont_stop/app/utils/timer_control.dart';
 import 'package:flutter/material.dart';
 
 class TimerButton extends StatelessWidget {
