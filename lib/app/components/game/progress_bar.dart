@@ -1,3 +1,4 @@
+import 'package:dont_stop/app/components/game/game_over_dialog.dart';
 import 'package:dont_stop/app/services/timer_service.dart';
 import 'package:dont_stop/app/utils/screensizer.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,13 @@ class _ProgressBarState extends State<ProgressBar> {
   void initState() {
     super.initState();
     timerService.onUpdate((time) {
-      if (mounted)
-        setState(() {
-          timeValue = time;
-        });
+      if (mounted) setState(() => timeValue = time);
     });
+
+    timerService.onGameOver(() {
+      if (mounted) setState(() => _showGameOverDialog());
+    });
+
     timerService.startOrResetTimer();
   }
 
@@ -38,5 +41,14 @@ class _ProgressBarState extends State<ProgressBar> {
         )
       ],
     );
+  }
+
+  void _showGameOverDialog() {
+    Future.delayed(
+        Duration.zero,
+        () => showDialog(
+              context: context,
+              builder: (BuildContext context) => GameOverDialog(),
+            ));
   }
 }
