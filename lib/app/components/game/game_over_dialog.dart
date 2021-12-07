@@ -1,3 +1,4 @@
+import 'package:dont_stop/app/screens/game.dart';
 import 'package:flutter/material.dart';
 
 class GameOverDialog extends StatelessWidget {
@@ -6,16 +7,31 @@ class GameOverDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("O tempo acabou!"),
-      content: Text("Agora sou um componente separado. O que você quer fazer?"),
+      title: Text("Seu tempo acabou!"),
+      content: Text("Obrigado por jogar. O que vamos fazer agora?"),
       actions: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.popUntil(
+              context,
+              (route) => route.isFirst,
+            );
+          },
           child: Text("Voltar ao menu"),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Game()),
+              ModalRoute.withName('/'),
+            );
+          },
           child: Text("Jogar de novo"),
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.blue,
+            primary: Colors.white,
+          ),
         )
       ],
     );
