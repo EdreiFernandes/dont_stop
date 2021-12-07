@@ -1,6 +1,6 @@
-import 'package:dont_stop/screens/categories_editor.dart';
-import 'package:dont_stop/screens/game_rules.dart';
-import 'package:dont_stop/utils/screensizer.dart';
+import 'package:dont_stop/app/screens/game_rules.dart';
+import 'package:dont_stop/app/utils/screensizer.dart';
+import 'package:dont_stop/app/screens/categories_editor.dart';
 import 'package:flutter/material.dart';
 
 import 'menu_button.dart';

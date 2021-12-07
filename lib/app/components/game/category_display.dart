@@ -1,9 +1,8 @@
-import 'package:dont_stop/database/dao/category_dao.dart';
-import 'package:dont_stop/utils/screensizer.dart';
+import 'package:dont_stop/app/database/dao/category_dao.dart';
+import 'package:dont_stop/app/utils/screensizer.dart';
 import 'package:flutter/material.dart';
 
 class CategoryDisplay extends StatefulWidget {
-
   CategoryDisplay({Key? key}) : super(key: key);
 
   @override
@@ -59,7 +58,7 @@ class _CategoryDisplayState extends State<CategoryDisplay> {
 
   void getRandomCategory() {
     _categoryDao.getRandom().then((category) {
-      if(mounted){
+      if (mounted) {
         setState(() => _categoryRound = category.name);
       }
     });

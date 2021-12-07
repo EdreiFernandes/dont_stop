@@ -1,5 +1,5 @@
-import 'package:dont_stop/database/dao/category_dao.dart';
-import 'package:dont_stop/models/category.dart';
+import 'package:dont_stop/app/database/dao/category_dao.dart';
+import 'package:dont_stop/app/models/category.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesEditor extends StatefulWidget {
