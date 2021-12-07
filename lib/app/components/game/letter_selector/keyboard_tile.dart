@@ -1,6 +1,7 @@
-import 'package:dont_stop/app/utils/keyboard_memory.dart';
+import 'package:dont_stop/app/services/keyboard_memory_service.dart';
 import 'package:dont_stop/app/utils/screensizer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class KeyboardTile extends StatefulWidget {
   final String letter;
@@ -13,10 +14,11 @@ class KeyboardTile extends StatefulWidget {
 
 class _KeyboardTileState extends State<KeyboardTile> {
   late bool _isActive = false;
+  final KeyboardMemoryService keyboardMemoryService = Modular.get();
 
   @override
   void initState() {
-    KeyboardMemory().getLetterStatus(widget.letter).then((value) {
+    keyboardMemoryService.getLetterStatus(widget.letter).then((value) {
       setState(() {
         _isActive = value;
       });
@@ -36,7 +38,7 @@ class _KeyboardTileState extends State<KeyboardTile> {
         onTap: () {
           setState(() {
             _isActive = !_isActive;
-            KeyboardMemory().setLetterStatus(widget.letter, _isActive);
+            keyboardMemoryService.setLetterStatus(widget.letter, _isActive);
           });
         },
         child: Container(
