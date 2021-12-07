@@ -1,6 +1,6 @@
-import 'package:dont_stop/database/app_database.dart';
-import 'package:dont_stop/models/category.dart';
-import 'package:dont_stop/utils/extensions/string_extensions.dart';
+import 'package:dont_stop/app/database/app_database.dart';
+import 'package:dont_stop/app/models/category.dart';
+import 'package:dont_stop/app/utils/extensions/string_extensions.dart';
 import 'package:sqflite/sqflite.dart';
 
 class CategoryDao {

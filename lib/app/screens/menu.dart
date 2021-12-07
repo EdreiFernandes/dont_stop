@@ -1,5 +1,5 @@
-import 'package:dont_stop/components/menu/play_button.dart';
-import 'package:dont_stop/components/menu/scrollable_menu.dart';
+import 'package:dont_stop/app/components/menu/play_button.dart';
+import 'package:dont_stop/app/components/menu/scrollable_menu.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {

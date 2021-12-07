@@ -1,4 +1,4 @@
-import 'package:dont_stop/utils/screensizer.dart';
+import 'package:dont_stop/app/utils/screensizer.dart';
 import 'package:flutter/material.dart';
 
 class MenuButton extends StatelessWidget {

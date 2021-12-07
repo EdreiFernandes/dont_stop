@@ -1,6 +1,12 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class KeyboardMemory {
+abstract class KeyboardMemoryService {
+  void setLetterStatus(String key, bool isActive);
+  Future<bool> getLetterStatus(String key);
+  void clearLetterStatus();
+}
+
+class KeyboardMemoryServiceImpl implements KeyboardMemoryService {
   void setLetterStatus(String key, bool isActive) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setBool(key, isActive);
@@ -10,5 +16,10 @@ class KeyboardMemory {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     bool status = preferences.getBool(key) ?? true;
     return status;
+  }
+
+  void clearLetterStatus() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.clear();
   }
 }
