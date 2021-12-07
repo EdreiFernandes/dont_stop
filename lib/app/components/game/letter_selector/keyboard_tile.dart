@@ -37,8 +37,10 @@ class _KeyboardTileState extends State<KeyboardTile> {
       child: InkWell(
         onTap: () {
           setState(() {
-            _isActive = !_isActive;
-            keyboardMemoryService.setLetterStatus(widget.letter, _isActive);
+            if (_isActive) {
+              _isActive = false;
+              keyboardMemoryService.setLetterStatus(widget.letter, _isActive);
+            }
           });
         },
         child: Container(
