@@ -27,7 +27,7 @@ class PlayButton extends StatelessWidget {
             height: ScreenSize().getHeight(context, dividedBy: 2),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                vertical: ScreenSize().getWidth(context, dividedBy: 8.0),
+                vertical: ScreenSize().getWidth(context, dividedBy: 12.0),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

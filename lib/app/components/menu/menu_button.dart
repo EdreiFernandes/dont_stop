@@ -29,8 +29,8 @@ class MenuButton extends StatelessWidget {
           width: ScreenSize().getWidth(context, dividedBy: 2.2),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: ScreenSize().getWidth(context, dividedBy: 50.0),
-              vertical: ScreenSize().getWidth(context, dividedBy: 15.0),
+              horizontal: ScreenSize().getWidth(context, dividedBy: 40.0),
+              vertical: ScreenSize().getWidth(context, dividedBy: 20.0),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
